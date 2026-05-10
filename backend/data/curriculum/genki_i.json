@@ -1,0 +1,115 @@
+{
+  "id": "genki_i",
+  "title": "Genki I (3rd Edition)",
+  "description": "Curso integrado de japonés elemental — Lecciones 1-12",
+  "lessons": [
+    {
+      "id": "genki1_l01",
+      "title": "L1: あたらしい友達 (Nuevos amigos)",
+      "grammar": ["XはYです", "Question sentences ～か", "Noun の Noun", "と (and)", "Numbers 1-100"],
+      "vocabulary": [
+        {"kanji": "私", "kana": "わたし", "es": "yo"},
+        {"kanji": "学生", "kana": "がくせい", "es": "estudiante"},
+        {"kanji": "留学生", "kana": "りゅうがくせい", "es": "estudiante internacional"},
+        {"kanji": "日本人", "kana": "にほんじん", "es": "japonés (persona)"},
+        {"kanji": "中国人", "kana": "ちゅうごくじん", "es": "chino (persona)"},
+        {"kanji": "韓国人", "kana": "かんこくじん", "es": "coreano (persona)"},
+        {"kanji": "専門", "kana": "せんもん", "es": "especialidad / carrera"},
+        {"kanji": "経済", "kana": "けいざい", "es": "economía"},
+        {"kanji": "文学", "kana": "ぶんがく", "es": "literatura"},
+        {"kanji": "歴史", "kana": "れきし", "es": "historia"},
+        {"kanji": "一年生", "kana": "いちねんせい", "es": "estudiante de primer año"},
+        {"kanji": "二年生", "kana": "にねんせい", "es": "estudiante de segundo año"},
+        {"kanji": "国際関係", "kana": "こくさいかんけい", "es": "relaciones internacionales"},
+        {"kanji": "電話番号", "kana": "でんわばんごう", "es": "número de teléfono"},
+        {"kanji": "名前", "kana": "なまえ", "es": "nombre"},
+        {"kanji": "国", "kana": "くに", "es": "país"},
+        {"kanji": "大学", "kana": "だいがく", "es": "universidad"},
+        {"kanji": "高校", "kana": "こうこう", "es": "preparatoria / bachillerato"},
+        {"kanji": "医者", "kana": "いしゃ", "es": "médico"},
+        {"kanji": "弁護士", "kana": "べんごし", "es": "abogado"},
+        {"kanji": "主婦", "kana": "しゅふ", "es": "ama de casa"}
+      ],
+      "sentences": [
+        {"jp": "私はメアリーです。", "es": "Soy Mary."},
+        {"jp": "たけしさんは日本人です。", "es": "Takeshi es japonés."},
+        {"jp": "私は留学生です。", "es": "Soy estudiante internacional."},
+        {"jp": "メアリーさんはアメリカ人ですか。", "es": "¿Mary es estadounidense?"},
+        {"jp": "専門は歴史です。", "es": "Mi especialidad es historia."},
+        {"jp": "お名前は何ですか。", "es": "¿Cuál es tu nombre?"}
+      ]
+    },
+    {
+      "id": "genki1_l02",
+      "title": "L2: 買い物 (De compras)",
+      "grammar": ["これ/それ/あれ/どれ", "この/その/あの/どの", "ここ/そこ/あそこ/どこ", "だれの", "も", "～じゃないです"],
+      "vocabulary": [
+        {"kanji": "これ", "kana": "これ", "es": "esto"},
+        {"kanji": "それ", "kana": "それ", "es": "eso"},
+        {"kanji": "あれ", "kana": "あれ", "es": "aquello"},
+        {"kanji": "どれ", "kana": "どれ", "es": "cuál"},
+        {"kanji": "何", "kana": "なに/なん", "es": "qué"},
+        {"kanji": "いくら", "kana": "いくら", "es": "cuánto (precio)"},
+        {"kanji": "本", "kana": "ほん", "es": "libro"},
+        {"kanji": "辞書", "kana": "じしょ", "es": "diccionario"},
+        {"kanji": "お土産", "kana": "おみやげ", "es": "recuerdo / souvenir"},
+        {"kanji": "お菓子", "kana": "おかし", "es": "dulces / golosinas"},
+        {"kanji": "食べ物", "kana": "たべもの", "es": "comida"},
+        {"kanji": "飲み物", "kana": "のみもの", "es": "bebida"},
+        {"kanji": "店", "kana": "みせ", "es": "tienda"},
+        {"kanji": "売店", "kana": "ばいてん", "es": "kiosko / puesto"},
+        {"kanji": "スーパー", "kana": "スーパー", "es": "supermercado"},
+        {"kanji": "デパート", "kana": "デパート", "es": "almacén / tienda departamental"},
+        {"kanji": "パン", "kana": "パン", "es": "pan"},
+        {"kanji": "鞄", "kana": "かばん", "es": "bolso"},
+        {"kanji": "時計", "kana": "とけい", "es": "reloj"},
+        {"kanji": "携帯電話", "kana": "けいたいでんわ", "es": "teléfono móvil"},
+        {"kanji": "高い", "kana": "たかい", "es": "caro"}
+      ],
+      "sentences": [
+        {"jp": "これはいくらですか。", "es": "¿Cuánto cuesta esto?"},
+        {"jp": "それは私の本です。", "es": "Ese es mi libro."},
+        {"jp": "あれはだれの鞄ですか。", "es": "¿De quién es aquel bolso?"},
+        {"jp": "この時計は高いです。", "es": "Este reloj es caro."},
+        {"jp": "それは日本の雑誌じゃないです。", "es": "Esa no es una revista japonesa."},
+        {"jp": "これもお土産ですか。", "es": "¿Esto también es un souvenir?"}
+      ]
+    },
+    {
+      "id": "genki1_l03",
+      "title": "L3: デート (Una cita)",
+      "grammar": ["Verbos: presente, pasado, negativo", "を (objeto directo)", "で (lugar de acción)", "に (meta de movimiento)", "～ませんか/ましょう"],
+      "vocabulary": [
+        {"kanji": "映画", "kana": "えいが", "es": "película"},
+        {"kanji": "音楽", "kana": "おんがく", "es": "música"},
+        {"kanji": "雑誌", "kana": "ざっし", "es": "revista"},
+        {"kanji": "手紙", "kana": "てがみ", "es": "carta"},
+        {"kanji": "新聞", "kana": "しんぶん", "es": "periódico"},
+        {"kanji": "宿題", "kana": "しゅくだい", "es": "tarea"},
+        {"kanji": "朝ごはん", "kana": "あさごはん", "es": "desayuno"},
+        {"kanji": "昼ごはん", "kana": "ひるごはん", "es": "almuerzo"},
+        {"kanji": "晩ごはん", "kana": "ばんごはん", "es": "cena"},
+        {"kanji": "お茶", "kana": "おちゃ", "es": "té verde"},
+        {"kanji": "珈琲", "kana": "コーヒー", "es": "café"},
+        {"kanji": "水", "kana": "みず", "es": "agua"},
+        {"kanji": "食べる", "kana": "たべる", "es": "comer"},
+        {"kanji": "飲む", "kana": "のむ", "es": "beber"},
+        {"kanji": "見る", "kana": "みる", "es": "ver / mirar"},
+        {"kanji": "読む", "kana": "よむ", "es": "leer"},
+        {"kanji": "聞く", "kana": "きく", "es": "escuchar / preguntar"},
+        {"kanji": "書く", "kana": "かく", "es": "escribir"},
+        {"kanji": "買う", "kana": "かう", "es": "comprar"},
+        {"kanji": "撮る", "kana": "とる", "es": "tomar (foto)"},
+        {"kanji": "会う", "kana": "あう", "es": "encontrarse con / ver a alguien"}
+      ],
+      "sentences": [
+        {"jp": "私は毎日コーヒーを飲みます。", "es": "Bebo café todos los días."},
+        {"jp": "図書館で本を読みます。", "es": "Leo libros en la biblioteca."},
+        {"jp": "喫茶店に行きませんか。", "es": "¿Vamos a un café?"},
+        {"jp": "映画を見ましょう。", "es": "Veamos una película."},
+        {"jp": "昨日手紙を書きました。", "es": "Ayer escribí una carta."},
+        {"jp": "朝ごはんを食べませんでした。", "es": "No desayuné."}
+      ]
+    }
+  ]
+}

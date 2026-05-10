@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.env
+*.db
+ollama_data/
+backend_data/
+whisper_models/
+__pycache__/
+*.pyc
+.DS_Store

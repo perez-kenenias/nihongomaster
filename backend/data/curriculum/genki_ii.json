@@ -1,0 +1,112 @@
+{
+  "id": "genki_ii",
+  "title": "Genki II (3rd Edition)",
+  "description": "Curso integrado de japonés intermedio — Lecciones 13-23",
+  "lessons": [
+    {
+      "id": "genki2_l13",
+      "title": "L13: アルバイト (Trabajo de medio tiempo)",
+      "grammar": ["〜たい (querer hacer)", "〜に行く (ir a hacer)", "形容词の過去形", "〜のです (explicación)"],
+      "vocabulary": [
+        {"kanji": "欲しい", "kana": "ほしい", "es": "querer / desear (objeto)"},
+        {"kanji": "〜たい", "kana": "〜たい", "es": "querer hacer ~"},
+        {"kanji": "留学", "kana": "りゅうがく", "es": "estudiar en el extranjero"},
+        {"kanji": "申し込む", "kana": "もうしこむ", "es": "solicitar / aplicar"},
+        {"kanji": "就職", "kana": "しゅうしょく", "es": "conseguir empleo"},
+        {"kanji": "経験", "kana": "けいけん", "es": "experiencia"},
+        {"kanji": "履歴書", "kana": "りれきしょ", "es": "currículum vitae"},
+        {"kanji": "面接", "kana": "めんせつ", "es": "entrevista"},
+        {"kanji": "時給", "kana": "じきゅう", "es": "salario por hora"},
+        {"kanji": "アルバイト", "kana": "アルバイト", "es": "trabajo de medio tiempo"},
+        {"kanji": "コンビニ", "kana": "コンビニ", "es": "tienda de conveniencia"},
+        {"kanji": "喫茶店", "kana": "きっさてん", "es": "cafetería"},
+        {"kanji": "教える", "kana": "おしえる", "es": "enseñar"},
+        {"kanji": "選ぶ", "kana": "えらぶ", "es": "elegir / seleccionar"},
+        {"kanji": "始める", "kana": "はじめる", "es": "empezar (transitivo)"},
+        {"kanji": "続ける", "kana": "つづける", "es": "continuar"},
+        {"kanji": "決める", "kana": "きめる", "es": "decidir"},
+        {"kanji": "説明", "kana": "せつめい", "es": "explicación"},
+        {"kanji": "理由", "kana": "りゆう", "es": "razón / motivo"},
+        {"kanji": "外国語", "kana": "がいこくご", "es": "idioma extranjero"}
+      ],
+      "sentences": [
+        {"jp": "日本へ留学に行きたいです。", "es": "Quiero ir a estudiar a Japón."},
+        {"jp": "アルバイトを探しています。", "es": "Estoy buscando trabajo de medio tiempo."},
+        {"jp": "喫茶店でアルバイトをしたいです。", "es": "Quiero trabajar medio tiempo en una cafetería."},
+        {"jp": "面接の経験がありますか。", "es": "¿Tienes experiencia en entrevistas?"},
+        {"jp": "どうして日本に来たんですか。", "es": "¿Por qué viniste a Japón?"},
+        {"jp": "日本語を勉強したいんです。", "es": "Es que quiero estudiar japonés."}
+      ]
+    },
+    {
+      "id": "genki2_l14",
+      "title": "L14: お正月 (Año Nuevo)",
+      "grammar": ["〜ましょうか (ofrecer)", "〜てみる (intentar hacer)", "〜ば (condicional)", "〜かもしれません (posibilidad)"],
+      "vocabulary": [
+        {"kanji": "正月", "kana": "しょうがつ", "es": "Año Nuevo"},
+        {"kanji": "大晦日", "kana": "おおみそか", "es": "Nochevieja / víspera de año nuevo"},
+        {"kanji": "年賀状", "kana": "ねんがじょう", "es": "tarjeta de año nuevo"},
+        {"kanji": "初詣", "kana": "はつもうで", "es": "primera visita al templo del año"},
+        {"kanji": "お賽銭", "kana": "おさいせん", "es": "ofrenda monetaria al templo"},
+        {"kanji": "着物", "kana": "きもの", "es": "kimono"},
+        {"kanji": "お年玉", "kana": "おとしだま", "es": "dinero de año nuevo (para niños)"},
+        {"kanji": "除夜の鐘", "kana": "じょやのかね", "es": "campanadas de fin de año"},
+        {"kanji": "神社", "kana": "じんじゃ", "es": "santuario sintoísta"},
+        {"kanji": "お寺", "kana": "おてら", "es": "templo budista"},
+        {"kanji": "願い事", "kana": "ねがいごと", "es": "deseo / petición"},
+        {"kanji": "手伝う", "kana": "てつだう", "es": "ayudar / echar una mano"},
+        {"kanji": "送る", "kana": "おくる", "es": "enviar"},
+        {"kanji": "祈る", "kana": "いのる", "es": "rezar / pedir un deseo"},
+        {"kanji": "集める", "kana": "あつめる", "es": "recolectar / reunir"},
+        {"kanji": "飾る", "kana": "かざる", "es": "decorar"},
+        {"kanji": "用意する", "kana": "よういする", "es": "preparar"},
+        {"kanji": "もし", "kana": "もし", "es": "si (condicional)"},
+        {"kanji": "多分", "kana": "たぶん", "es": "probablemente"},
+        {"kanji": "きっと", "kana": "きっと", "es": "seguramente"}
+      ],
+      "sentences": [
+        {"jp": "お正月に神社へお参りに行きます。", "es": "En Año Nuevo voy a visitar el santuario."},
+        {"jp": "着物を着てみたいです。", "es": "Quiero intentar ponerme un kimono."},
+        {"jp": "手伝いましょうか。", "es": "¿Te ayudo?"},
+        {"jp": "もし時間があれば、お寺に行きます。", "es": "Si tengo tiempo, iré al templo."},
+        {"jp": "明日は多分雪が降るかもしれません。", "es": "Mañana quizás nieve."},
+        {"jp": "年賀状を友達に送りました。", "es": "Envié tarjetas de año nuevo a mis amigos."}
+      ]
+    },
+    {
+      "id": "genki2_l15",
+      "title": "L15: 旅行 (Viaje)",
+      "grammar": ["〜たいと思っている", "〜ように (para que)", "尊敬語 (lenguaje honorífico)", "〜間 (mientras)"],
+      "vocabulary": [
+        {"kanji": "旅行", "kana": "りょこう", "es": "viaje"},
+        {"kanji": "温泉", "kana": "おんせん", "es": "aguas termales"},
+        {"kanji": "旅館", "kana": "りょかん", "es": "posada tradicional japonesa"},
+        {"kanji": "景色", "kana": "けしき", "es": "paisaje / vista"},
+        {"kanji": "海外", "kana": "かいがい", "es": "extranjero (ultramar)"},
+        {"kanji": "空港", "kana": "くうこう", "es": "aeropuerto"},
+        {"kanji": "飛行機", "kana": "ひこうき", "es": "avión"},
+        {"kanji": "切符", "kana": "きっぷ", "es": "boleto"},
+        {"kanji": "予約", "kana": "よやく", "es": "reservación"},
+        {"kanji": "案内所", "kana": "あんないじょ", "es": "oficina de información turística"},
+        {"kanji": "地図", "kana": "ちず", "es": "mapa"},
+        {"kanji": "荷物", "kana": "にもつ", "es": "equipaje"},
+        {"kanji": "乗り換え", "kana": "のりかえ", "es": "transbordo / cambio de línea"},
+        {"kanji": "計画", "kana": "けいかく", "es": "plan"},
+        {"kanji": "お勧め", "kana": "おすすめ", "es": "recomendación"},
+        {"kanji": "お越しになる", "kana": "おこしになる", "es": "venir (honorífico)"},
+        {"kanji": "いらっしゃる", "kana": "いらっしゃる", "es": "estar / ir / venir (honorífico)"},
+        {"kanji": "ご覧になる", "kana": "ごらんになる", "es": "ver / mirar (honorífico)"},
+        {"kanji": "召し上がる", "kana": "めしあがる", "es": "comer / beber (honorífico)"},
+        {"kanji": "なさる", "kana": "なさる", "es": "hacer (honorífico)"}
+      ],
+      "sentences": [
+        {"jp": "日本を旅行したいと思っています。", "es": "Estoy pensando en viajar por Japón."},
+        {"jp": "京都の旅館に泊まりました。", "es": "Me hospedé en una posada tradicional en Kyoto."},
+        {"jp": "お勧めの温泉はどこですか。", "es": "¿Cuál recomiendas de aguas termales?"},
+        {"jp": "先生はいつお越しになりますか。", "es": "¿Cuándo vendrá el profesor? (honorífico)"},
+        {"jp": "切符の予約はもうなさいましたか。", "es": "¿Ya hizo la reservación de boletos? (honorífico)"},
+        {"jp": "飛行機の中で映画を見ながら寝ました。", "es": "Me dormí viendo una película en el avión."}
+      ]
+    }
+  ]
+}
