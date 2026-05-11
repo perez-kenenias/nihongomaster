@@ -1,27 +1,130 @@
-$deck = (curl.exe -s -X POST http://localhost:8000/api/study/decks -H 'Content-Type: application/json' -d '{"title":"Test","source":"custom","level":"n5"}' | ConvertFrom-Json)
-Write-Host "1. Deck: $($deck.id) - $($deck.title)"
+# NihongoMaster API Tests
+# Usage: powershell -ExecutionPolicy Bypass -File test_api.ps1
+# Uses Invoke-RestMethod for proper UTF-8/JSON handling in PowerShell 5.1
 
-$cardBody = '{"front":"こんにちは","back":"hola","reading":"konnichiwa","card_type":"vocabulary","deck_id":"' + $deck.id + '"}'
-$card = (curl.exe -s -X POST "http://localhost:8000/api/study/decks/$($deck.id)/cards" -H 'Content-Type: application/json' -d $cardBody | ConvertFrom-Json)
-Write-Host "2. Card: $($card.front) = $($card.back)"
+$BASE = "http://localhost:8000/api"
+$pass = 0
+$fail = 0
 
-$cardBody2 = '{"front":"ありがとう","back":"gracias","reading":"arigatou","card_type":"vocabulary","deck_id":"' + $deck.id + '"}'
-curl.exe -s -X POST "http://localhost:8000/api/study/decks/$($deck.id)/cards" -H 'Content-Type: application/json' -d $cardBody2 | Out-Null
+function test($name, $script) {
+    try {
+        & $script | Out-Null
+        Write-Host "  PASS  $name" -ForegroundColor Green
+        $global:pass++
+    } catch {
+        Write-Host "  FAIL  $name : $_" -ForegroundColor Red
+        $global:fail++
+    }
+}
 
-$sessionJson = '{"deck_id":"' + $deck.id + '","limit":10}'
-$cards = (curl.exe -s -X POST http://localhost:8000/api/study/session -H 'Content-Type: application/json' -d $sessionJson | ConvertFrom-Json)
-Write-Host "3. Session: $($cards.Count) cards due"
+Write-Host "`n=== NihongoMaster API Test Suite ===`n"
 
-$reviewJson = '{"card_id":"' + $cards[0].id + '","rating":"good"}'
-$review = (curl.exe -s -X POST http://localhost:8000/api/study/review -H 'Content-Type: application/json' -d $reviewJson | ConvertFrom-Json)
-Write-Host "4. Review: stability=$($review.stability) next=$($review.next_review)"
+# 1. Create deck
+$deck = $null
+test "POST /api/study/decks" {
+    $body = @{title="Test"; source="custom"; level="n5"} | ConvertTo-Json -Compress
+    $script:deck = Invoke-RestMethod -Uri "$BASE/study/decks" -Method Post -Body $body -ContentType "application/json"
+    if (-not $script:deck.id) { throw "No deck id returned" }
+    Write-Host "         Deck: $($script:deck.id) - $($script:deck.title)"
+}
 
-$stats = (curl.exe -s http://localhost:8000/api/stats/dashboard | ConvertFrom-Json)
-Write-Host "5. Stats: reviewed_today=$($stats.cards_reviewed_today) total=$($stats.total_cards)"
+# 2. Add card
+$card = $null
+test "POST /api/study/decks/{id}/cards" {
+    $body = @{
+        front="konnichiha"; back="hola"; reading="konnichiwa"
+        card_type="vocabulary"; deck_id=$deck.id
+    } | ConvertTo-Json -Compress
+    $script:card = Invoke-RestMethod -Uri "$BASE/study/decks/$($deck.id)/cards" -Method Post -Body $body -ContentType "application/json"
+    if ($script:card.front -ne "konnichiha") { throw "Wrong card data" }
+    Write-Host "         Card: $($script:card.front) = $($script:card.back)"
+}
 
-$score = (curl.exe -s -X POST http://localhost:8000/api/pronounce/score -H 'Content-Type: application/json' -d '{"text":"すみません","transcription":"すみません"}' | ConvertFrom-Json)
-Write-Host "6. Pronounce: $($score.score)% - $($score.feedback)"
+# 3. Add second card
+test "POST /api/study/decks/{id}/cards (2)" {
+    $body = @{
+        front="arigatou"; back="gracias"; reading="arigatou"
+        card_type="vocabulary"; deck_id=$deck.id
+    } | ConvertTo-Json -Compress
+    $c2 = Invoke-RestMethod -Uri "$BASE/study/decks/$($deck.id)/cards" -Method Post -Body $body -ContentType "application/json"
+    if (-not $c2.id) { throw "No card id returned" }
+}
 
-curl.exe -s -X DELETE "http://localhost:8000/api/study/decks/$($deck.id)" | Out-Null
-Write-Host "7. Cleanup done`n"
-Write-Host "=== ALL 7 TESTS PASSED ==="
+# 4. Start session
+$cards = $null
+test "POST /api/study/session" {
+    $body = @{deck_id=$deck.id; limit=10} | ConvertTo-Json -Compress
+    $script:cards = Invoke-RestMethod -Uri "$BASE/study/session" -Method Post -Body $body -ContentType "application/json"
+    if ($script:cards.Count -lt 1) { throw "No cards in session" }
+    Write-Host "         Cards in session: $($script:cards.Count)"
+}
+
+# 5. Review card
+test "POST /api/study/review" {
+    $body = @{card_id=$cards[0].id; rating="good"} | ConvertTo-Json -Compress
+    $review = Invoke-RestMethod -Uri "$BASE/study/review" -Method Post -Body $body -ContentType "application/json"
+    if (-not $review.next_review) { throw "No next_review returned" }
+    Write-Host "         Stability: $($review.stability)  Next: $($review.next_review)"
+}
+
+# 6. Stats dashboard
+test "GET /api/stats/dashboard" {
+    $stats = Invoke-RestMethod -Uri "$BASE/stats/dashboard"
+    if ($null -eq $stats.total_cards) { throw "No total_cards" }
+    Write-Host "         Reviewed today: $($stats.cards_reviewed_today)  Total: $($stats.total_cards)"
+}
+
+# 7. Pronunciation scoring
+test "POST /api/pronounce/score" {
+    $body = @{text="sumimasen"; transcription="sumimasen"} | ConvertTo-Json -Compress
+    $score = Invoke-RestMethod -Uri "$BASE/pronounce/score" -Method Post -Body $body -ContentType "application/json"
+    if ($null -eq $score.score) { throw "No score returned" }
+    Write-Host "         Score: $($score.score)%  Feedback: $($score.feedback)"
+}
+
+# 8. Curriculum books
+test "GET /api/curriculum/books" {
+    $books = Invoke-RestMethod -Uri "$BASE/curriculum/books"
+    if ($books.Count -ne 3) { throw "Expected 3 books, got $($books.Count)" }
+    Write-Host "         Books: $($books.Count)"
+}
+
+# 9. Book detail
+test "GET /api/curriculum/books/genki_i" {
+    $book = Invoke-RestMethod -Uri "$BASE/curriculum/books/genki_i"
+    if (-not $book.title) { throw "No book title" }
+}
+
+# 10. Lesson detail
+test "GET /api/curriculum/books/genki_i/lessons/genki1_l01" {
+    $lesson = Invoke-RestMethod -Uri "$BASE/curriculum/books/genki_i/lessons/genki1_l01"
+    if ($lesson.vocabulary.Count -eq 0) { throw "No vocabulary" }
+    Write-Host "         Vocabulary: $($lesson.vocabulary.Count)  Sentences: $($lesson.sentences.Count)"
+}
+
+# 11. Scenarios list
+test "GET /api/chat/scenarios" {
+    $scenarios = Invoke-RestMethod -Uri "$BASE/chat/scenarios"
+    if ($scenarios.Count -ne 8) { throw "Expected 8 scenarios, got $($scenarios.Count)" }
+    Write-Host "         Scenarios: $($scenarios.Count)"
+}
+
+# 12. Scenario detail
+test "GET /api/chat/scenarios/restaurant" {
+    $s = Invoke-RestMethod -Uri "$BASE/chat/scenarios/restaurant"
+    if (-not $s.title) { throw "No scenario title" }
+}
+
+# 13. Health check
+test "GET /api/health" {
+    $h = Invoke-RestMethod -Uri "$BASE/health"
+    if ($h.status -ne "ok") { throw "Health not ok" }
+}
+
+# Cleanup
+test "DELETE /api/study/decks/{id}" {
+    Invoke-RestMethod -Uri "$BASE/study/decks/$($deck.id)" -Method Delete | Out-Null
+}
+
+Write-Host "`n=== Results: $pass passed, $fail failed ==="
+if ($fail -gt 0) { exit 1 } else { exit 0 }
