@@ -1,10 +1,97 @@
+# ============================================================
+# NihongoMaster .gitignore
+# ============================================================
+# Archivos y carpetas excluidos del control de versiones.
+# Cada seccion explica que se ignora y por que.
+# Los comentarios solo funcionan si el # esta al INICIO de la linea.
+# ============================================================
+
+
+# ─── Dependencias ───────────────────────────────────────────
+# Bibliotecas instaladas por npm y pip. Se regeneran con:
+#   npm install          (lee package.json)
+#   pip install -r requirements.txt
+
 node_modules/
+__pycache__/
+*.pyc
+
+
+# ─── Build artifacts ────────────────────────────────────────
+# Archivos generados al compilar. Se regeneran con:
+#   npm run build        (Next.js)
+#   npm run dev          (modo desarrollo)
+
 .next/
+dist/
+build/
+
+
+# ─── Variables de entorno ───────────────────────────────────
+# Contienen credenciales, URLs de servicios y configuracion
+# sensible. Usar .env.example como plantilla.
+
 .env
+.env.local
+.env.*.local
+
+
+# ─── Base de datos ──────────────────────────────────────────
+# SQLite con datos del usuario (tarjetas, mazos, progreso).
+# Se crea automaticamente al iniciar el backend.
+
 *.db
+*.db-journal
+*.db-wal
+
+
+# ─── Volumenes de Docker ────────────────────────────────────
+# Datos persistentes de los contenedores. Pesan varios GB.
+# No deben versionarse porque son especificos de cada maquina.
+
 ollama_data/
 backend_data/
 whisper_models/
-__pycache__/
-*.pyc
+
+
+# ─── Sistema operativo ──────────────────────────────────────
+# Archivos generados automaticamente por el SO o el editor.
+
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+
+# ─── IDE y editores ─────────────────────────────────────────
+# Configuracion local de cada desarrollador. No debe
+# compartirse para no imponer preferencias personales.
+
+.vscode/
+.idea/
+*.sublime-workspace
+
+
+# ─── Logs y temporales ──────────────────────────────────────
+# Salida de ejecucion, errores, y archivos temporales.
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+
+
+# ─── Coverage y testing ─────────────────────────────────────
+# Reportes generados por herramientas de testing y cobertura.
+
+coverage/
+.nyc_output/
+
+
+# ─── Override de Docker Compose ─────────────────────────────
+# Configuracion local de Docker que no debe compartirse.
+
+docker-compose.override.yml
